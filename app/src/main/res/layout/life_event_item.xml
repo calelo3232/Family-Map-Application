@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/life_event_image"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/location_image">
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/life_event_image">
+        <TextView
+            android:id="@+id/life_event_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Event description">
+        </TextView>
+
+        <TextView
+            android:id="@+id/life_event_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Name">
+        </TextView>
+    </LinearLayout>
+</RelativeLayout>

@@ -178,28 +178,28 @@ public class DataCache {
         paternalSide = new HashSet<>();
         Person father = getPersonByID(userPerson.getFatherID());
         paternalSide.add(father);
-        paternalSide.addAll(addPaternalParents(father));
+        paternalSide.addAll(getAncestors(father));
     }
 
     private void maternalFilter() {
         maternalSide = new HashSet<>();
         Person mother = getPersonByID(userPerson.getMotherID());
         maternalSide.add(mother);
-        maternalSide.addAll(addPaternalParents(mother));
+        maternalSide.addAll(getAncestors(mother));
     }
 
-    private Set<Person> addPaternalParents(Person person) {
-        Set<Person> parents = new HashSet<>();
+    private Set<Person> getAncestors(Person person) {
+        Set<Person> ancestors = new HashSet<>();
         Person father = getPersonByID(person.getFatherID());
         Person mother = getPersonByID(person.getMotherID());
         if (father != null) {
-            parents.add(father);
-            parents.addAll(addPaternalParents(father));
+            ancestors.add(father);
+            ancestors.addAll(getAncestors(father));
         } if (mother != null) {
-            parents.add(mother);
-            parents.addAll(addPaternalParents(mother));
+            ancestors.add(mother);
+            ancestors.addAll(getAncestors(mother));
         }
-        return parents;
+        return ancestors;
     }
 
     private void setEventFilter() {
